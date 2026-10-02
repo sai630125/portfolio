@@ -274,6 +274,7 @@ export default function ProjectsSection() {
 
                 {/* Reservation Items Grid */}
                 <div
+                  className="simulator-floorplan-grid"
                   style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(3, 1fr)',

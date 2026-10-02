@@ -69,8 +69,11 @@ export default function Navbar({ onOpenCommandPalette, onOpenContact }) {
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontWeight: 700, fontSize: '14px', letterSpacing: '-0.01em', color: '#f8fafc' }}>
+              <span className="navbar-brand-full" style={{ fontWeight: 700, fontSize: '14px', letterSpacing: '-0.01em', color: '#f8fafc' }}>
                 Teluri Sai Krishna Reddy
+              </span>
+              <span className="navbar-brand-mobile" style={{ fontWeight: 700, fontSize: '14px', letterSpacing: '-0.01em', color: '#f8fafc' }}>
+                Sai Krishna Reddy
               </span>
               <span className="badge-pulse" title="Available for Roles" />
             </div>
@@ -111,24 +114,25 @@ export default function Navbar({ onOpenCommandPalette, onOpenContact }) {
         </nav>
 
         {/* Right Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           
           {/* Live Visitor Counter Badge */}
           <LiveVisitorCounter compact={true} />
 
-          {/* LinkedIn Link */}
+          {/* LinkedIn Link (Hidden on very small screens to give space to counter + menu) */}
           <a
             href={portfolioData.personal.linkedinUrl}
             target="_blank"
             rel="noreferrer"
             data-cursor-label="LINKEDIN"
             title="LinkedIn Profile"
+            className="navbar-linkedin-icon"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '34px',
-              height: '34px',
+              width: '32px',
+              height: '32px',
               borderRadius: '7px',
               background: 'rgba(255, 255, 255, 0.04)',
               border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -145,14 +149,15 @@ export default function Navbar({ onOpenCommandPalette, onOpenContact }) {
               e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
             }}
           >
-            <Linkedin size={15} />
+            <Linkedin size={14} />
           </a>
 
-          {/* Command Palette Trigger */}
+          {/* Command Palette Trigger (Desktop only) */}
           <button
             onClick={onOpenCommandPalette}
             data-cursor-label="SEARCH"
             title="Quick Search (Ctrl+K)"
+            className="desktop-cmd-btn"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -190,32 +195,38 @@ export default function Navbar({ onOpenCommandPalette, onOpenContact }) {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '34px',
-              height: '34px',
-              background: 'transparent',
-              border: 'none',
+              width: '36px',
+              height: '36px',
+              borderRadius: '8px',
+              background: mobileMenuOpen ? 'rgba(56, 189, 248, 0.15)' : 'rgba(255, 255, 255, 0.05)',
+              border: `1px solid ${mobileMenuOpen ? 'rgba(56, 189, 248, 0.4)' : 'rgba(255, 255, 255, 0.1)'}`,
               color: '#f8fafc',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              transition: 'all 0.2s ease'
             }}
             className="mobile-menu-btn"
             aria-label="Toggle Navigation"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileMenuOpen ? <X size={18} color="#38bdf8" /> : <Menu size={18} />}
           </button>
         </div>
 
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu with Sleek Frosted Glass */}
       {mobileMenuOpen && (
         <div
           style={{
-            background: '#0c0f16',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-            padding: '18px 24px',
+            background: 'rgba(7, 10, 16, 0.96)',
+            borderBottom: '1px solid rgba(56, 189, 248, 0.2)',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.75)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            padding: '20px 18px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '14px'
+            gap: '8px',
+            animation: 'slideDown 0.25s ease'
           }}
         >
           {navLinks.map((link) => (
@@ -224,30 +235,79 @@ export default function Navbar({ onOpenCommandPalette, onOpenContact }) {
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
               style={{
-                fontSize: '14px',
-                color: '#cbd5e1',
+                fontSize: '15px',
+                color: '#e2e8f0',
                 textDecoration: 'none',
-                fontWeight: 500,
-                padding: '4px 0'
+                fontWeight: 600,
+                padding: '12px 14px',
+                borderRadius: '8px',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                transition: 'all 0.15s ease'
               }}
             >
-              {link.name}
+              <span>{link.name}</span>
+              <span style={{ color: '#38bdf8', fontSize: '13px' }}>→</span>
             </a>
           ))}
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenContact();
-            }}
-            className="btn-primary"
-            style={{ marginTop: '8px', width: '100%' }}
-          >
-            Let's Connect
-          </button>
+
+          {/* Quick Connect & Contact in Mobile Menu */}
+          <div style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenContact();
+              }}
+              className="btn-primary"
+              style={{ width: '100%', justifyContent: 'center', padding: '13px' }}
+            >
+              Let's Connect Directly
+            </button>
+
+            <a
+              href={portfolioData.personal.linkedinUrl}
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                padding: '11px',
+                borderRadius: '8px',
+                background: 'rgba(56, 189, 248, 0.08)',
+                border: '1px solid rgba(56, 189, 248, 0.25)',
+                color: '#38bdf8',
+                fontSize: '13px',
+                fontWeight: 600,
+                textDecoration: 'none',
+                boxSizing: 'border-box'
+              }}
+            >
+              <Linkedin size={15} />
+              <span>Connect on LinkedIn</span>
+            </a>
+          </div>
         </div>
       )}
 
       <style>{`
+        .navbar-brand-mobile { display: none; }
+        
+        @media (max-width: 640px) {
+          .navbar-brand-full { display: none !important; }
+          .navbar-brand-mobile { display: inline-block !important; }
+          .desktop-cmd-btn { display: none !important; }
+        }
+
+        @media (max-width: 420px) {
+          .navbar-linkedin-icon { display: none !important; }
+        }
+
         @media (min-width: 900px) {
           .desktop-nav {
             display: flex !important;
@@ -258,6 +318,11 @@ export default function Navbar({ onOpenCommandPalette, onOpenContact }) {
           #nav-connect-btn {
             display: inline-flex !important;
           }
+        }
+
+        @keyframes slideDown {
+          from { opacity: 0; transform: translateY(-8px); }
+          to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </header>

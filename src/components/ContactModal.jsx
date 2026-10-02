@@ -91,10 +91,12 @@ export default function ContactModal({ isOpen, onClose }) {
       }}
     >
       <div
-        className="glass-card"
+        className="glass-card contact-modal-content"
         style={{
           width: '100%',
           maxWidth: '520px',
+          maxHeight: '92vh',
+          overflowY: 'auto',
           padding: '32px',
           borderRadius: '16px',
           border: '1px solid rgba(56, 189, 248, 0.35)',

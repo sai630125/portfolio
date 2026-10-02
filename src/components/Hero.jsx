@@ -78,15 +78,16 @@ export default function Hero({ onOpenContact }) {
             
             {/* Top Eyebrow Status Pill */}
             <div
+              className="hero-eyebrow-pill"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '10px',
+                gap: '8px',
                 padding: '7px 16px',
                 borderRadius: '9999px',
                 background: 'rgba(255, 255, 255, 0.035)',
                 border: '1px solid rgba(255, 255, 255, 0.09)',
-                marginBottom: '28px',
+                marginBottom: '24px',
                 boxShadow: '0 4px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06)'
               }}
             >
@@ -100,7 +101,7 @@ export default function Hero({ onOpenContact }) {
                   color: '#f1f5f9'
                 }}
               >
-                AVAILABLE FOR WORK: FULL-TIME / CONTRACT
+                AVAILABLE FOR HIRE
               </span>
               <span style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
               <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#38bdf8', fontWeight: 600 }}>REACT.JS</span>
@@ -110,12 +111,13 @@ export default function Hero({ onOpenContact }) {
 
             {/* Main Headline */}
             <h1
+              className="hero-headline"
               style={{
-                fontSize: 'clamp(38px, 5.2vw, 64px)',
+                fontSize: 'clamp(34px, 5.2vw, 64px)',
                 lineHeight: 1.1,
                 fontWeight: 800,
                 letterSpacing: '-0.03em',
-                marginBottom: '24px',
+                marginBottom: '20px',
                 color: '#ffffff'
               }}
             >
@@ -127,12 +129,13 @@ export default function Hero({ onOpenContact }) {
 
             {/* Subtitle Description */}
             <p
+              className="hero-subtitle"
               style={{
-                fontSize: '16px',
-                lineHeight: 1.8,
+                fontSize: '15px',
+                lineHeight: 1.75,
                 color: '#94a3b8',
                 maxWidth: '640px',
-                marginBottom: '32px'
+                marginBottom: '28px'
               }}
             >
               Senior Software Engineer with <strong style={{ color: '#ffffff', fontWeight: 700 }}>4.6 years of experience</strong> designing and scaling full-stack web applications using <strong style={{ color: '#38bdf8' }}>React.js</strong> and <strong style={{ color: '#34d399' }}>Spring Boot</strong>, <strong style={{ color: '#818cf8' }}>Microservices</strong> and <strong style={{ color: '#f59e0b' }}>MSSQL</strong>. Proven track record in building responsive UIs, developing secure RESTful APIs, and optimizing database performance for enterprise Facilities Management systems.
@@ -144,7 +147,7 @@ export default function Hero({ onOpenContact }) {
                 display: 'flex',
                 flexWrap: 'wrap',
                 gap: '8px',
-                marginBottom: '38px'
+                marginBottom: '32px'
               }}
             >
               {techBadges.map((badge) => (
@@ -161,11 +164,12 @@ export default function Hero({ onOpenContact }) {
 
             {/* Action Buttons */}
             <div
+              className="hero-action-buttons"
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
                 alignItems: 'center',
-                gap: '14px'
+                gap: '12px'
               }}
             >
               <a
@@ -181,6 +185,7 @@ export default function Hero({ onOpenContact }) {
                 href="#contact"
                 data-cursor-label="EMAIL"
                 className="btn-secondary"
+                style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
               >
                 <span>saikrishnareddyteluri@gmail.com</span>
               </a>
@@ -259,6 +264,7 @@ export default function Hero({ onOpenContact }) {
                 {/* Node 1: Client UI */}
                 <div
                   data-cursor-label="CLIENT"
+                  className="pipeline-node-item"
                   style={{
                     padding: '12px 16px',
                     borderRadius: '8px',
@@ -268,19 +274,19 @@ export default function Hero({ onOpenContact }) {
                     transition: 'all 0.25s ease'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <Monitor size={16} color={activeNode === 1 ? '#38bdf8' : '#94a3b8'} />
-                      <span style={{ fontSize: '13px', fontWeight: 700, color: '#f8fafc' }}>
-                        CLIENT UI — REACT.JS &amp; REDUX TOOLKIT
+                      <Monitor size={16} color={activeNode === 1 ? '#38bdf8' : '#94a3b8'} style={{ flexShrink: 0 }} />
+                      <span className="pipeline-node-title" style={{ fontSize: '13px', fontWeight: 700, color: '#f8fafc' }}>
+                        CLIENT UI — REACT.JS &amp; REDUX
                       </span>
                     </div>
-                    <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#38bdf8', fontWeight: 600 }}>
+                    <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#38bdf8', fontWeight: 600, flexShrink: 0 }}>
                       +25% Speed
                     </span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#64748b', marginTop: '4px', fontFamily: 'var(--font-mono)' }}>
-                    <span>Prime React &amp; Modular Reusable Components</span>
+                  <div className="pipeline-node-desc" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#64748b', marginTop: '4px', fontFamily: 'var(--font-mono)' }}>
+                    <span>Prime React &amp; Modular Components</span>
                     <span style={{ color: '#34d399' }}>Dev Effort: -70%</span>
                   </div>
                 </div>
@@ -304,6 +310,7 @@ export default function Hero({ onOpenContact }) {
                 {/* Node 2: Spring Security & Auth */}
                 <div
                   data-cursor-label="SECURITY"
+                  className="pipeline-node-item"
                   style={{
                     padding: '12px 16px',
                     borderRadius: '8px',
@@ -313,20 +320,20 @@ export default function Hero({ onOpenContact }) {
                     transition: 'all 0.25s ease'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <ShieldCheck size={16} color={activeNode === 2 ? '#818cf8' : '#94a3b8'} />
-                      <span style={{ fontSize: '13px', fontWeight: 700, color: '#f8fafc' }}>
-                        SECURITY — SPRING SECURITY &amp; AUTHORIZATION
+                      <ShieldCheck size={16} color={activeNode === 2 ? '#818cf8' : '#94a3b8'} style={{ flexShrink: 0 }} />
+                      <span className="pipeline-node-title" style={{ fontSize: '13px', fontWeight: 700, color: '#f8fafc' }}>
+                        SECURITY — SPRING SECURITY &amp; AUTH
                       </span>
                     </div>
-                    <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#818cf8', fontWeight: 600 }}>
+                    <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#818cf8', fontWeight: 600, flexShrink: 0 }}>
                       RBAC OK
                     </span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#64748b', marginTop: '4px', fontFamily: 'var(--font-mono)' }}>
-                    <span>Role-Based Permissions &amp; Authentication</span>
-                    <span style={{ color: '#818cf8' }}>Payload: Reduced</span>
+                  <div className="pipeline-node-desc" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#64748b', marginTop: '4px', fontFamily: 'var(--font-mono)' }}>
+                    <span>Role-Based Permissions &amp; Auth</span>
+                    <span style={{ color: '#818cf8' }}>Payload: Optimized</span>
                   </div>
                 </div>
 
@@ -349,6 +356,7 @@ export default function Hero({ onOpenContact }) {
                 {/* Node 3: Core Backend */}
                 <div
                   data-cursor-label="BACKEND"
+                  className="pipeline-node-item"
                   style={{
                     padding: '12px 16px',
                     borderRadius: '8px',
@@ -358,20 +366,20 @@ export default function Hero({ onOpenContact }) {
                     transition: 'all 0.25s ease'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <Server size={16} color={activeNode === 3 ? '#34d399' : '#94a3b8'} />
-                      <span style={{ fontSize: '13px', fontWeight: 700, color: '#f8fafc' }}>
-                        BACKEND — JAVA &amp; SPRING BOOT MICROSERVICES
+                      <Server size={16} color={activeNode === 3 ? '#34d399' : '#94a3b8'} style={{ flexShrink: 0 }} />
+                      <span className="pipeline-node-title" style={{ fontSize: '13px', fontWeight: 700, color: '#f8fafc' }}>
+                        BACKEND — SPRING BOOT MICROSERVICES
                       </span>
                     </div>
-                    <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#34d399', fontWeight: 600 }}>
+                    <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#34d399', fontWeight: 600, flexShrink: 0 }}>
                       -50% Time
                     </span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#64748b', marginTop: '4px', fontFamily: 'var(--font-mono)' }}>
-                    <span>Spring MVC REST APIs &amp; Business Logic Validation</span>
-                    <span style={{ color: '#34d399' }}>Data Retrieval: 50% Faster</span>
+                  <div className="pipeline-node-desc" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#64748b', marginTop: '4px', fontFamily: 'var(--font-mono)' }}>
+                    <span>Spring MVC REST &amp; Business Rules</span>
+                    <span style={{ color: '#34d399' }}>Retrieval: 50% Faster</span>
                   </div>
                 </div>
 
@@ -394,6 +402,7 @@ export default function Hero({ onOpenContact }) {
                 {/* Node 4: MSSQL */}
                 <div
                   data-cursor-label="DATABASE"
+                  className="pipeline-node-item"
                   style={{
                     padding: '12px 16px',
                     borderRadius: '8px',
@@ -403,19 +412,19 @@ export default function Hero({ onOpenContact }) {
                     transition: 'all 0.25s ease'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <Database size={16} color={activeNode === 4 ? '#f59e0b' : '#94a3b8'} />
-                      <span style={{ fontSize: '13px', fontWeight: 700, color: '#f8fafc' }}>
-                        DATABASE — MICROSOFT SQL SERVER (MSSQL)
+                      <Database size={16} color={activeNode === 4 ? '#f59e0b' : '#94a3b8'} style={{ flexShrink: 0 }} />
+                      <span className="pipeline-node-title" style={{ fontSize: '13px', fontWeight: 700, color: '#f8fafc' }}>
+                        DATABASE — MICROSOFT SQL SERVER
                       </span>
                     </div>
-                    <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#f59e0b', fontWeight: 600 }}>
-                      -70% Query Time
+                    <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#f59e0b', fontWeight: 600, flexShrink: 0 }}>
+                      -70% Query
                     </span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#64748b', marginTop: '4px', fontFamily: 'var(--font-mono)' }}>
-                    <span>Spring Data JPA // Stored Procedures &amp; Index Tuning</span>
+                  <div className="pipeline-node-desc" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#64748b', marginTop: '4px', fontFamily: 'var(--font-mono)' }}>
+                    <span>Spring Data JPA &amp; Index Tuning</span>
                     <span style={{ color: '#f59e0b' }}>70% Optimization</span>
                   </div>
                 </div>

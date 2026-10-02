@@ -89,7 +89,7 @@ export default function SkillsSection() {
           }}
         >
           {/* Category Tabs */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+          <div className="skills-category-tabs" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             <button
               onClick={() => setActiveCategory('all')}
               data-cursor-label="FILTER"
@@ -103,7 +103,8 @@ export default function SkillsSection() {
                 color: activeCategory === 'all' ? '#07090e' : '#94a3b8',
                 border: `1px solid ${activeCategory === 'all' ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)'}`,
                 cursor: 'pointer',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
+                whiteSpace: 'nowrap'
               }}
             >
               All Categories
@@ -123,7 +124,8 @@ export default function SkillsSection() {
                   color: activeCategory === cat.id ? '#38bdf8' : '#94a3b8',
                   border: `1px solid ${activeCategory === cat.id ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)'}`,
                   cursor: 'pointer',
-                  transition: 'all 0.2s ease'
+                  transition: 'all 0.2s ease',
+                  whiteSpace: 'nowrap'
                 }}
               >
                 {cat.name}
@@ -133,6 +135,7 @@ export default function SkillsSection() {
 
           {/* Search Input */}
           <div
+            className="skills-search-container"
             style={{
               position: 'relative',
               width: '100%',

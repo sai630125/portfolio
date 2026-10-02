@@ -20,6 +20,7 @@ export default function Footer() {
     >
       <div className="container-max">
         <div
+          className="footer-main-row"
           style={{
             display: 'flex',
             flexWrap: 'wrap',
@@ -39,7 +40,8 @@ export default function Footer() {
                 border: '1px solid rgba(56, 189, 248, 0.3)',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                flexShrink: 0
               }}
             >
               <Terminal size={17} color="#38bdf8" />
@@ -55,7 +57,7 @@ export default function Footer() {
           </div>
 
           {/* Center: Real Contact Channels */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <div className="footer-contact-links" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <a
               href={portfolioData.personal.linkedinUrl}
               target="_blank"

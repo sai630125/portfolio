@@ -25,6 +25,7 @@ export default function MetricsRibbon() {
     >
       <div className="container-max">
         <div
+          className="metrics-grid-container"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
@@ -34,7 +35,7 @@ export default function MetricsRibbon() {
           {portfolioData.metrics.map((item, idx) => (
             <div
               key={idx}
-              className="glass-card spotlight-card interactive-card"
+              className="glass-card spotlight-card interactive-card metrics-card-inner"
               data-cursor-label="METRIC"
               style={{
                 padding: '24px 20px',
@@ -64,8 +65,9 @@ export default function MetricsRibbon() {
                 </div>
 
                 <div
+                  className="metrics-card-number"
                   style={{
-                    fontSize: 'clamp(30px, 2.6vw, 38px)',
+                    fontSize: 'clamp(26px, 2.6vw, 38px)',
                     fontWeight: 800,
                     letterSpacing: '-0.03em',
                     lineHeight: 1,

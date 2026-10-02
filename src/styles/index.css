@@ -586,8 +586,177 @@ body::after {
   z-index: 5;
 }
 
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE SYSTEM (iOS & Android Optimized)
+   ========================================================================== */
+
+/* 1. Touch Devices: Suppress Desktop Custom Cursor & Show Native Touch */
+@media (pointer: coarse), (max-width: 900px) {
+  .custom-cursor-dot,
+  .custom-cursor-ring,
+  .cursor-hover-text,
+  .cursor-trail-canvas {
+    display: none !important;
+  }
+  
+  *, html, body, a, button, input {
+    cursor: auto !important;
+  }
+}
+
+/* 2. Global Mobile Experience */
 @media (max-width: 768px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 75px;
+  }
+
+  body {
+    overflow-x: hidden;
+    touch-action: pan-y;
+  }
+
   .container-max {
-    padding: 0 18px;
+    padding: 0 16px !important;
+  }
+
+  /* Responsive Glass Cards */
+  .glass-card, 
+  .spotlight-card,
+  .interactive-card {
+    padding: 20px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  /* Responsive Hero */
+  #hero {
+    padding-top: 92px !important;
+    padding-bottom: 50px !important;
+  }
+
+  .hero-eyebrow-pill {
+    max-width: 100% !important;
+    padding: 6px 12px !important;
+    font-size: 10px !important;
+    white-space: normal !important;
+    flex-wrap: wrap !important;
+  }
+
+  .hero-action-buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .hero-action-buttons > * {
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+  }
+
+  /* Pipeline Visualizer on Mobile */
+  .pipeline-node-item {
+    padding: 10px 12px !important;
+  }
+
+  .pipeline-node-title {
+    font-size: 11px !important;
+  }
+
+  .pipeline-node-desc {
+    flex-direction: column !important;
+    gap: 2px !important;
+  }
+
+  /* Metrics Ribbon 2-Column Mobile Grid */
+  .metrics-grid-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .metrics-grid-container > div:last-child {
+    grid-column: span 2 !important;
+  }
+
+  .metrics-card-inner {
+    padding: 16px 14px !important;
+    min-height: auto !important;
+  }
+
+  .metrics-card-number {
+    font-size: 26px !important;
+  }
+
+  /* Skills Category Scroll on Mobile */
+  .skills-category-tabs {
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding-bottom: 6px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  .skills-category-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .skills-category-tabs > button {
+    flex-shrink: 0 !important;
+  }
+
+  .skills-search-container {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Simulators on Mobile */
+  .simulator-floorplan-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  /* Footer on Mobile */
+  footer {
+    padding: 30px 0 !important;
+  }
+
+  .footer-main-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+  }
+
+  .footer-contact-links {
+    flex-wrap: wrap !important;
+    width: 100% !important;
+  }
+
+  .footer-contact-links > a {
+    flex: 1 1 calc(50% - 8px) !important;
+    justify-content: center !important;
+  }
+}
+
+/* 3. Small Mobile Devices (iPhone SE / 360px Android) */
+@media (max-width: 480px) {
+  .hero-headline {
+    font-size: 32px !important;
+    line-height: 1.15 !important;
+  }
+
+  .hero-subtitle {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+
+  .btn-primary, .btn-secondary, .btn-outline-cyan {
+    padding: 12px 18px !important;
+    font-size: 13px !important;
+  }
+
+  .contact-modal-content {
+    padding: 20px 16px !important;
+    max-height: 92vh !important;
   }
 }
