@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUp, Linkedin, Mail, Phone, Terminal } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import LiveVisitorCounter from './LiveVisitorCounter';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -153,6 +154,26 @@ export default function Footer() {
           </div>
 
         </div>
+
+        {/* Live Visitor Metrics & Telemetry Bar */}
+        <div
+          style={{
+            marginTop: '24px',
+            paddingTop: '20px',
+            borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '16px'
+          }}
+        >
+          <LiveVisitorCounter compact={false} />
+          <div style={{ fontSize: '11px', color: '#64748b', fontFamily: 'var(--font-mono)' }}>
+            REAL-TIME TELEMETRY // PRIVACY PRESERVED // 0% COOKIE TRACKERS
+          </div>
+        </div>
+
       </div>
     </footer>
   );

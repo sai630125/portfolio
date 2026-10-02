@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Terminal, Command, Menu, X, ArrowUpRight, Linkedin } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import LiveVisitorCounter from './LiveVisitorCounter';
 
 export default function Navbar({ onOpenCommandPalette, onOpenContact }) {
   const [scrolled, setScrolled] = useState(false);
@@ -112,6 +113,9 @@ export default function Navbar({ onOpenCommandPalette, onOpenContact }) {
         {/* Right Actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           
+          {/* Live Visitor Counter Badge */}
+          <LiveVisitorCounter compact={true} />
+
           {/* LinkedIn Link */}
           <a
             href={portfolioData.personal.linkedinUrl}
