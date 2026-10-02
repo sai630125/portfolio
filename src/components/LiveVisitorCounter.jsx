@@ -15,19 +15,24 @@ export default function LiveVisitorCounter({ compact = false }) {
 
     async function fetchVisitorCount() {
       try {
-        // hits.sh provides a free, live, real-time SVG hit tracker incremented per visit
-        const response = await fetch('https://hits.sh/sai630125.github.io/portfolio.svg', {
-          cache: 'no-cache'
+        // Check if this specific session has already registered a hit to avoid rapid duplicate counting
+        const hasVisited = sessionStorage.getItem('portfolio_visited_session');
+        const endpoint = hasVisited
+          ? 'https://countapi.mileshilliard.com/api/v1/get/sai630125-portfolio'
+          : 'https://countapi.mileshilliard.com/api/v1/hit/sai630125-portfolio';
+
+        const response = await fetch(endpoint, {
+          cache: 'no-cache',
+          headers: { 'Accept': 'application/json' }
         });
         
         if (response.ok) {
-          const svgText = await response.text();
-          const match = svgText.match(/aria-label="hits:\s*(\d+)"/i) || svgText.match(/<title>hits:\s*(\d+)<\/title>/i);
-          if (match && match[1]) {
-            const count = parseInt(match[1], 10);
+          const data = await response.json();
+          if (data && typeof data.value === 'number') {
             if (isMounted) {
-              setViews(count);
-              localStorage.setItem('portfolio_page_views', count.toString());
+              setViews(data.value);
+              localStorage.setItem('portfolio_page_views', data.value.toString());
+              sessionStorage.setItem('portfolio_visited_session', 'true');
             }
           }
         }
