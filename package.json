@@ -1,0 +1,41 @@
+{
+  "name": "portfolio-cursor-react",
+  "version": "1.0.0",
+  "description": "High-Performance Senior Full-Stack Portfolio with Webpack, React and Custom Cursor UX",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "webpack serve --mode development --config webpack.config.js --port 3000 --open",
+    "dev": "webpack serve --mode development --config webpack.config.js --port 3000",
+    "build": "webpack --mode production --config webpack.config.js"
+  },
+  "keywords": [
+    "react",
+    "portfolio",
+    "webpack",
+    "full-stack",
+    "cursor-effects"
+  ],
+  "author": "Senior Full-Stack Engineer",
+  "license": "MIT",
+  "dependencies": {
+    "canvas-confetti": "^1.9.4",
+    "lucide-react": "^0.475.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
+    "autoprefixer": "^10.4.20",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "postcss": "^8.5.3",
+    "postcss-loader": "^8.1.1",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  }
+}
